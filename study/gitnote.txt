@@ -1,0 +1,70 @@
+
+git介绍
+
+	1.git是linus开发的一个分布式版本管理软件,2005年完成
+	2.linux原来用的版本管理软件是bitkeeper
+	3.Github网站2008年上线，提供开源项目免费git存储
+	4.集中式版本管理csv ,svn,clearcase，vss等，需要一个服务器，版本库在服务器里，版本集中控制由服务器实现
+	5.分布式版本管理：bitkeeper,git等，每个电脑里都有自己完整的版本库，现在的运行方式是部署一台中心交换服务器，作为版本交换中心
+
+git安装使用与建仓库
+
+	1.windows可安装msysgit
+	2.建好以后要给自己的git配置用户信息  
+		git config --global user.name "panzi"
+		git config --global user.email "hello@sina.com"
+	3.创建版本库
+		1）建目录
+		2）将目录设为git仓库 在目录里执行 git init
+	4.版本控制系统智能跟踪文本文件的改动，对图片、视频、word等二进制文件无法跟踪文件内容变化
+	5.windows自带的记事本保存UTF-8编码的文件时，会在文件开头添加0xefbbbf的字符(BOM),这个会导致网页第一行显示一个“？”,使用Notepad++代替记事本，不但功能强大，而且免费！记得把Notepad++的默认编码设置为UTF-8 without BOM即可。
+	6.添加文件
+		1）将文件放到仓库目录下；
+		2）用命令将文件加到仓库： git add readme.txt
+		3）把文件提交到仓库：  git commit -m "some words about this commit"
+
+git使用
+    1.修改文件后的处理方法
+		1）查看状态   git status 
+		2）查看修改内容  git diff  readme.txt
+		3）提交修改，方法与添加文件一样： git add readme.txt   ;  git commit -m " some word"
+		4）再次使用  git status ,提交成功后应该显示 nothing to commit,working directory clean
+		
+	2.查看版本历史  
+		1）查看版本日志
+			git log
+		2）版本回退
+			git reset --hard HEAD~n；  git reset --hard  commit-id
+		3）命令日志，通过查看命令日志找到命令对应的commit id
+			git reflog
+	
+	3.工作区和暂存区
+		1）工作区就是仓库所在目录及里面手动建的子目录
+		2）工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+		3）Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index、objects）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+		4）master分支是当前分支
+		5）我们把文件往Git版本库里添加的时候，是分两步执行的：
+			第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
+			第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+			因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。
+	4.管理修改
+		1）工作区的修改每 git add 一次，是放入到一个新的暂存区，如果没有提交，再次修改并git add ，则会放到另一个暂存区。
+		2）在暂存区里，每次add操作将为每个文件建立一个新目录，即时 git add  test.txt  test2.txt 操作，也会建立两个目录
+		3）撤销修改
+			(1)撤销工作区的修改到最近的暂存区状态    git checkout  --  file
+			(2)用命令git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区 
+			(3)git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
+		4)删除文件 
+			(1)执行删除命令  git rm  file
+			(2)提交 git commit -m "...."
+
+远程仓库
+	1.创建github账号 ：登录github.com 注册
+	2.自己搭建服务器
+	3.使用github 方式： 
+		1）建立本地库与gitHub的连接：  git remote add origin https://github.com/xxx/yyy.git
+		2）将本地库提交到gitHub git push -u origin master   ,-u 参数是推送master分支下的所有内容
+		3）将修改提交上去：git push origin master 推送最新修改
+		
+	
+	
