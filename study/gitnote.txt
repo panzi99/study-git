@@ -76,5 +76,6 @@ git使用
 			1）在本地使用  ssh-keygen -t rsa -C "youeemail@xxx.com" 创建SSH KEY
 			2）登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
 		
-
+  分支管理
+         一个分支由这条分支上的多个提交按时间串接而成，每个项目有一个master分支，HEAD指向master分支。
 	
