@@ -77,5 +77,23 @@ git使用
 			2）登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
 		
   分支管理
-         一个分支由这条分支上的多个提交按时间串接而成，每个项目有一个master分支，HEAD指向master分支。
+         一个分支由这条分支上的多个提交按时间串接而成，每个项目有一个master分支，HEAD默认指向master分支。
+	 git的分支与master分支共享历史分支，一个新分支是在时间串上的分支，是树枝型，不是森林型，
+	 master分支与其他分支地位相同，HEAD指针指向当前分支，HEAD指针指向的分支是当前工作的分支，可以使用git checkout  分支名进行切换
+	 相关命令：
+	 1）创建分支： git branch 分支名
+	 2）切换分支： git checkout 分支名
+	 3）列出分支： git branch
+	 4) 创建并切换到新建分支： git checkout -b 分支名
+	 5）合并分支： git merge 分支名,  将分支合并到当前分支
+	 6）删除分支： git branch -d 分支名
+	 解决冲突：
+	 当两个分支都对同一个文件进行了修改，内容不同时，分出现版本冲突，此时不能直接用 git merge 分支进行合并，需要手动在当前版本上将另一个分支上的修改添加好，才能进行合并。
+	 分支管理策略：
+	 在合并是选择是否使用fast-forward，recursive 合并方式，git merge 分支, 是使用 fast-forword方式， git merge --no-ff -m "sss" 分支是 recursive的方式。
+	 fast-forword方式合并后git log 看不到合并痕迹，recursive方式可以看到
+	 
+	 
+	 
+	 
 	
