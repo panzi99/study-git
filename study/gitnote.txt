@@ -93,6 +93,29 @@ git使用
 	 在合并是选择是否使用fast-forward，recursive 合并方式，git merge 分支, 是使用 fast-forword方式， git merge --no-ff -m "sss" 分支是 recursive的方式。
 	 fast-forword方式合并后git log 看不到合并痕迹，recursive方式可以看到
 	 
+	 BUG分支：
+	 临时分支，使用分支暂存方式将当前在修改的文档缓存，待BUG处理完后，再从缓存中取出继续处理
+	 git stash :把当前工作现场缓存
+	 git stash list: 查看缓存的工资现场
+	 git stash apply  stash-id，取出指定缓存   git stash drop stash-id;  删除缓存，
+	 git stash pop   取出并删除缓存
+	 feature分支：
+	 为每个功能建一个分支，开发完成后再合并到主分支去。
+	 git checkout -b feature-xx;
+	 git add filename
+	 git commit -m "something"
+	 git checkout dev
+	 git branch -D feature-xx;   强制删除未合并的分支；
+	 多人协作：
+	 1.远程仓库的默认名称是 origin
+	 2.查看远程库的信息  git remote   ，可看到远程仓库名
+	 3.查看远程库详细信息  git remote -v   ,可以看到仓库名和获取地址信息
+	 4.推送分支：将本地指定分支的所有提交推送到远程库，git push 远程库名  本地分支名  ，如 git push origin  master 
+	 并非要将所有本地分支都推送到远程库，只有需要的分支推送
+	 5.抓取分支：1) 从远程库获取分支 git branch --set-upstream dev origin/dev
+	 2) 从远程库抓取：git pull
+	 
+	 
 	 
 	 
 	 
