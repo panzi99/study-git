@@ -1,0 +1,36 @@
+Python 简介
+   Python是“龟叔”Guido van Rossum在1998年圣诞期间创建的，是一个高级语言
+   Python适合开发的应用类型：网络应用（网站、后台服务）、工具程序、脚本任务、程序包装
+   Python 是解释型语言，相比C语言速度慢，是脚本程序，程序不能加密
+python语言特点
+   1.具有基本数据类型，包括：number（浮点数、复数、长整型），字符串，容器类，字典类；
+   2.支持面向对象编程，具有类和多重继承特性
+   3.代码可组织成模块和包
+   4.支持异常的发起与捕获，具有简练的错误处理机制
+   5.数据类型是强类型和动态类型，类型不能混合使用变量，如不能再list里同时存储string 和number类型
+   6.具有高级编程特性，如生成器generator 和 list工具
+   7.python自动管理内存分配
+python解释器
+   CPython：用C写的解释器
+   IPython：对CPython的一个封装
+   PyPy：采用JIT技术，对Python代码进行动态编译，先编译再执行
+   Jython：运行在java平台上的
+   IronPython:运行在.net平台上的
+
+python命令：
+    在cmd下用python进入python环境；>>>是python的提示符
+    在python的环境里，用exit退出环境
+    在cmd下，可以python  <filename.py>方式运行程序；
+    在python环境里只能输入python代码并立即执行
+    
+    直接运行py文件：在py文件的第一行加上一个特殊的注释: #!/usr/bin/env python3 就可以在Linux，mac环境下运行
+
+输入和输出
+     输出：print(exp1,exp2,exp3...) 用逗号分开表达式，输出结果中，每个逗号会输出一个空格
+     输入：input(), name = input()  将输入保存到变量name里
+python 注释
+     用 # 开头的语句是注释。
+代码块：     
+     但语句一冒号 : 结尾是，缩进的语句视为代码块。代码块使用缩进方式来组织的
+     
+python 大小写敏感
