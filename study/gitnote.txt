@@ -114,7 +114,32 @@ git使用
 	 并非要将所有本地分支都推送到远程库，只有需要的分支推送
 	 5.抓取分支：1) 从远程库获取分支 git branch --set-upstream dev origin/dev
 	 2) 从远程库抓取：git pull
+	 标签
+	 1.标签是一个版本库的快照，指向某个commit,标签是有含义的名字，跟某个commit id对应
+	 2.git tag 可以查看所有标签
+	 3.git show 标签名  显示标签详细信息
+	 4.git tag  -a 标签名  -m “说明”  commit-id   创建指向 commit-id提交版本的标签
+	 5.git tag  标签名   对当前的提交版本打标签
+	 6.git tag -d 标签名  删除标签
+	 7.创建的标签在本地，需要用git push origin <tagname> 将标签推送到远程
+	 8.删除远程标签：1）先删除本地标签，git delete tag -d <tagname> ;2)从远程删除  git push origin :refs/tags/<tabname>
+	 使用GitHut
+	 使用GitHut参与项目，需要在GitHub上有账号，然后使用自己的账号从开源项目获取项目，只能用自己的账号才具有修改权限
+	 git clone git@github.com:账号名/项目名.git
+	 要提交修改，要使用pull request ,官方接受后就可以提交修改
+GIT 配置	 
+	 1.git 配置： git config --global coloe.ui true 等
+	 2. .gitignore文件，用于将在工作目录下不要提交的文件做清单，  模板文件： https://github.com/github/gitignore
+	 3. 在有.gitignore情况下，要提交被排除的文件时，要用 -f 方式强制添加  git add -f <fielname>
+	 4. 可以查看某个文件是否在被排除的类型里，可以用命令进行检查： git check-ignore -v <filename>
+	 5.配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。
+	 6.配置文件放哪了？每个仓库的Git配置文件都放在.git/config文件中; 当前用户的git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
+	 7.git 命令的别名  git config --global alias <别名>  <命令字>： git config --global alias st status
 	 
+	 git服务搭建
+	 1.在Linux服务器上搭建git服务器
+	 2.要管理公钥，使用gitosis;
+	 3.要使用权限控制，可以用gitolite.
 	 
 	 
 	 
